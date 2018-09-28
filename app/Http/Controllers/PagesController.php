@@ -25,7 +25,7 @@ class PagesController extends Controller
 
 
 	    // Find portfolio images
-	    portfolioCollection = PortfolioImage::all();
+	    $portfolioCollection = PortfolioImage::all();
 	    // Break collection into chucnks of 4
 	    $portfolioGroups = array_chunk($portfolioCollection->toArray(), 4);
 	    // Break groups of 4 into groups of 3
