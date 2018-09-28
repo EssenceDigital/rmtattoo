@@ -1,0 +1,150 @@
+/* 05 responsive styles */
+@media screen and (max-width: 991px) and (min-width: 768px) {
+  .navbar-fixed-top .container{
+    width: 100%;
+  }
+  .navbar.navbar-default .navbar-nav > li > a {
+    font-size: 11px;
+  }  
+    .pad120 {
+    padding: 60px 0;
+  }
+
+    .pad-t120 {
+    padding-top: 60px;
+  }
+
+    .sm-pad-b {
+    padding-bottom: 60px;
+  }
+
+    .mt60,
+    .mt65 {
+    margin-top: 30px;
+  }
+
+    .sm-mb40 {
+    margin-bottom: 60px;
+  }
+
+  .about-bg{
+    background-size: cover;
+  }  
+}
+@media screen and (max-width: 767px) {
+  .navbar-fixed-top .col-md-12{
+    padding-left: 0;
+    paddin-right: 10px;
+  }
+  .navbar.navbar-default .navbar-collapse.collapse{
+      overflow: hidden;
+    }
+  .navbar.navbar-default .navbar-brand > img{
+    width: 100%;
+  }  
+  .navbar.navbar-default .navbar-toggle{
+    margin-top: 45px;
+  }
+    .pad120 {
+    padding: 60px 0;
+  }
+
+    .pad-t90 {
+    padding-top: 60px;
+  }
+
+    .pad-t120 {
+    padding-top: 60px;
+  }
+
+    .mt60 {
+    margin-top: 10px;
+  }
+
+    .mt65 {
+    margin-top: 15px;
+  }
+
+    .xs-mb30 {
+    margin-bottom: 30px;
+  }
+
+    .mass-head-pad {
+    padding: 120px 0 60px;
+  }
+
+    .booking-form select {
+    margin-bottom: 15px;
+  }
+
+    .counter-box {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+    .counter-box .counter-icon {
+    margin-bottom: 5px;
+  }
+    .counter-box .counter-icon i:before {
+    font-size: 30px;
+    color: #bc9355;
+  }
+    .counter-box .counter-content .counter {
+    color: #fff;
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+    .counter-box .counter-content h4 {
+    color: #fff;
+    letter-spacing: 1px;
+  }
+
+  .team-box .team-img img {
+    height: 325px;
+  }
+
+  #view-more-portfolio{
+    width: 50%;
+    margin-left: 25%;
+  }
+
+  #view-all-faq{
+    width: 50%;
+    margin-left: 25%;    
+  }
+
+  #send-booking-btn{
+    width: 50%;
+    margin-left: 25%;     
+  }
+
+  .c2a{
+    padding-left: 25px;
+    padding-right: 7px;
+  }
+
+  .c2a p{
+    padding-left: 5px;
+    padding-right: 20px;
+  }
+
+  .owl-theme .owl-nav {
+    margin-top: 0px;
+  }
+    .mass-head-content h2.page-title {
+    line-height: 40px;
+    margin-top: 10px;
+  }
+
+    .footer-contact.text-right, .footer-contact.text-left {
+    text-align: center;
+  }
+
+    .footer-icon i:before {
+    color: #bc9355;
+    font-size: 30px;
+    line-height: 40px;
+  }
+}
+/* 05 responsive styles */
+
+/*# sourceMappingURL=responsive.css.map */
