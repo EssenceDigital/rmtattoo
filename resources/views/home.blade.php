@@ -160,7 +160,7 @@
                     <img class="img-responsive xs-mb30" src="{{ url('_site-assets/images/about/about-1.jpg') }}" alt="">
                 </div> <!-- /.col -->
                 <div class="col-md-6">
-                    <img class="img-responsive xs-mb30" src="{{ url('_site-assets/images/about/about-1.jpg') }}" alt="">
+                    <img class="img-responsive xs-mb30" src="{{ url('_site-assets/images/about/about-2.jpg') }}" alt="">
                 </div> <!-- /.col -->
             </div>
 
