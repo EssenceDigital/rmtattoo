@@ -14,7 +14,6 @@
 				    <div class="service-content">
 				        <div class="service-header">
 				            <h2>Booking Requests</h2>
-				            
 				        </div>
 				        <div class="clearfix"></div>
 				        <p>You want your tattoo as soon as possible, and we legitimately understand. Thankfully, we've created a simple form that allows us to proccess your booking smoothly and ensures you get the peice you want.</p>
@@ -25,20 +24,20 @@
 				        <div class="service-btn">
 			            <button @click="showForm = true" class="btn btn-primary sbtn-hvr-out mt-20">
 				            <span>
-				            	Start a booking now 
+				            	Start a booking now
 				            </span>
-				            <span class="time"><i class="fa fa-clock-o"></i> 5 min</span>	
+				            <span class="time"><i class="fa fa-clock-o"></i> 5 min</span>
 			            </button>
 				        </div>
 				    </div>
 				</div>
-			</div>			
+			</div>
 
 		<transition name="fade">
 		  <!-- Booking form -->
-		  <div v-if="showForm" class="booking-form">	
-		    <!-- Client details -->  
-		    <div class="container-fluid">  
+		  <div v-if="showForm" class="booking-form">
+		    <!-- Client details -->
+		    <div class="container-fluid">
             <div class="row">
                 <div class="col-xs-12">
                     <div class="section-title text-center">
@@ -46,13 +45,13 @@
                         <h3 class="title">Request <strong>Booking</strong></h3>
                     </div>
                 </div> <!-- /.col -->
-            </div> <!-- /.row -->		    
+            </div> <!-- /.row -->
 		    	<!-- Horizontal rule (break) -->
 			    <div class="row">
 			    	<hr class="grey-border">
 			    </div>
-			    <!-- / Horizontal rule (break) --> 
-			    <!-- Title row -->     
+			    <!-- / Horizontal rule (break) -->
+			    <!-- Title row -->
 			    <div class="row">
 			    	<h3 class="subtitle">Your Details</h3>
 			    </div>
@@ -65,16 +64,16 @@
 			          <input v-model="fields.first.val" type="text" class="form-control" placeholder="First name...">
 			          <div class="help-block with-errors gold-text">{{ fields.first.errMsg }}</div>
 			        </div>
-			      </div> 
-			      <!-- / Input col --> 
+			      </div>
+			      <!-- / Input col -->
 			      <!-- Input col -->
 			      <div class="col-md-6">
 			        <div class="form-group">
 			          <input v-model="fields.last.val" type="text" class="form-control" placeholder="Last name...">
 			          <div class="help-block with-errors gold-text">{{ fields.last.errMsg }}</div>
 			        </div>
-			      </div>	
-			      <!-- / Input col -->        	        
+			      </div>
+			      <!-- / Input col -->
 			    </div>
 			    <!-- / Inputs row -->
 			    <!-- Inputs row -->
@@ -86,19 +85,19 @@
 			          <div class="help-block with-errors gold-text">{{ fields.phone.errMsg }}</div>
 			        </div>
 			      </div>
-			      <!-- / Input col --> 	
-			      <!-- Input col --> 
+			      <!-- / Input col -->
+			      <!-- Input col -->
 			      <div class="col-md-6">
 			        <div class="form-group">
 			          <input v-model="fields.email.val" type="text" class="form-control" placeholder="Email address...">
 			          <div class="help-block with-errors gold-text">{{ fields.email.errMsg }}</div>
 			        </div>
 			      </div>
-			      <!-- / Input col -->           	
+			      <!-- / Input col -->
 			    </div>
 			    <!-- / Inputs row -->
 			  </div>
-			  <!-- / Client details --> 
+			  <!-- / Client details -->
 
 			  <!-- Tattoo details -->
 			  <div class="container-fluid">
@@ -111,8 +110,8 @@
 			    <div class="row mb-4">
 			    	<h3 class="subtitle">About The Tattoo</h3>
 			    </div>
-			    <!-- / Title row -->	
-			    <!-- Inputs row -->      
+			    <!-- / Title row -->
+			    <!-- Inputs row -->
 			    <div class="row mt-15">
 			    	<!-- Input col -->
 			    	<div class="col-md-6">
@@ -123,7 +122,7 @@
 			            	{{ artist.name }}
 			            </option>
 			          </select>
-			          <div class="help-block with-errors gold-text">{{ fields.user_id.errMsg }}</div>	      			
+			          <div class="help-block with-errors gold-text">{{ fields.user_id.errMsg }}</div>
 			    		</div>
 			    	</div>
 			    	<!-- / Input col -->
@@ -133,8 +132,8 @@
 			          <input v-model="fields.tattoo_size.val" type="text" class="form-control" placeholder="Tattoo size...">
 			          <div class="help-block with-errors gold-text">{{ fields.tattoo_size.errMsg }}</div>
 			        </div>
-			      </div> 
-			      <!-- / Input col -->	    	
+			      </div>
+			      <!-- / Input col -->
 			    </div>
 			    <!-- / Inputs row -->
 			    <!-- Inputs row -->
@@ -147,14 +146,14 @@
 			        </div>
 			      </div>
 			      <!-- / Input col -->
-			      <!-- Input col --> 
+			      <!-- Input col -->
 			      <div class="col-md-6">
 			        <div class="form-group">
 			          <input v-model="fields.description.val" type="text" class="form-control" placeholder="Description...">
 			          <div class="help-block with-errors gold-text">{{ fields.description.errMsg }}</div>
 			        </div>
 			      </div>
-			      <!-- / Input col -->	      	    	
+			      <!-- / Input col -->
 			    </div>
 			    <!-- / Inputs row -->
 			    <!-- Inputs row -->
@@ -167,7 +166,7 @@
 			            <option value="Color">Color</option>
 			            <option value="Black-and-grey">Black & Grey</option>
 			          </select>
-			          <div class="help-block with-errors gold-text">{{ fields.color_preference.errMsg }}</div>	      			
+			          <div class="help-block with-errors gold-text">{{ fields.color_preference.errMsg }}</div>
 			    		</div>
 			    	</div>
 			    	<!-- / Input col -->
@@ -179,10 +178,10 @@
 			            <option value="Traditional">Traditional</option>
 			            <option value="Realistic">Realistic</option>
 			          </select>
-			          <div class="help-block with-errors gold-text">{{ fields.tattoo_style.errMsg }}</div>	      			
+			          <div class="help-block with-errors gold-text">{{ fields.tattoo_style.errMsg }}</div>
 			    		</div>
 			    	</div>
-			    	<!-- / Input col --> 	      	    	
+			    	<!-- / Input col -->
 			    </div>
 			    <!-- / Inputs row -->
 			    <!-- Inputs row -->
@@ -198,7 +197,7 @@
 			      <!-- Input col -->
 			      <div class="col-md-6">
 			        <div class="form-group">
-			          <image-input 
+			          <image-input
 			          	@image-added="imageAdded"
 			          >
 			          </image-input>
@@ -206,9 +205,9 @@
 			          <span v-if="this.fields.images.err" class="gold-text">{{ this.fields.images.errMsg }}</span>
 			        </div>
 			      </div>
-			      <!-- / Input col --> 	       	      	    	
+			      <!-- / Input col -->
 			    </div>
-			    <!-- / Inputs row -->					      	
+			    <!-- / Inputs row -->
 			  </div>
 			  <!-- / Tattoo details -->
 
@@ -227,10 +226,10 @@
 			    	</div>
 			    	<!--/ Image preview -->
 			    </div>
-			    <!-- / Image preview pane -->		  	
+			    <!-- / Image preview pane -->
 			  </div>
 			  <!-- / Image previews -->
-		
+
 				<div class="container-fluid">
 			  	<!-- Horizontal rule (break) -->
 			    <div class="row">
@@ -246,10 +245,10 @@
 			          <div class="help-block with-errors gold-text">{{ fields.captcha.errMsg }}</div>
 			        </div>
 			      </div>
-			      <!-- / Input col --> 	       	      	    	
+			      <!-- / Input col -->
 			    </div>
-			    <!-- / Captcha row -->				
-				</div>		  
+			    <!-- / Captcha row -->
+				</div>
 
 			  <!-- Submit button -->
 		    <div class="row mt-35">
@@ -259,9 +258,9 @@
 		    			<span v-if="isSaving"><i class="fa fa-spinner fa-spin fa-fw"></i></span>
 		    		</button>
 		    	</div>
-		    </div>    	    
+		    </div>
 		    <!-- / Submit button -->
-		  </div>				
+		  </div>
 		</transition>
 
 
@@ -273,7 +272,7 @@
 		  		<h3>Your booking request has been recieved!</h3>
 		  		<em><h5 class="mt5">We will contact you as soon as we are able to.</h5></em>
 		  	</div>
-		  </div>	  	
+		  </div>
 	  </transition>
 	  <!-- / Success alert -->
 
@@ -314,7 +313,7 @@
       	captcha: { val: '', err: false, errMsg: '', dflt: ''}
       },
       // For the artists select list
-      artists: []    
+      artists: []
     }),
 
     components: {
@@ -324,13 +323,13 @@
     methods: {
     	/*
     	 * Pushes an image to the images field value.
-    	 * @param image base64 - The image passed from the image input component 
+    	 * @param image base64 - The image passed from the image input component
     	*/
     	imageAdded (image) {
     		// Only add image if there is less than 3 currently
     		if(this.fields.images.val.length < 3){
 	    		// Cache the images in form field
-	    		this.fields.images.val.push(image.base64);    			
+	    		this.fields.images.val.push(image.base64);
     		} else  {
     			// Flag error if there is already 3 images
     			this.fields.images.err = true;
@@ -349,8 +348,8 @@
     		return this.fields.images.val.splice(index, 1);
     	},
 
-    	/* 
-			 * 
+    	/*
+			 *
     	*/
     	validate () {
     		// Itterate over fields
@@ -373,12 +372,12 @@
     		}
     	},
 
-    	/* 
-	  	 * Saves the form to the database 
+    	/*
+	  	 * Saves the form to the database
     	*/
     	submit () {
     		// Validate form first
-    		this.validate();    		
+    		this.validate();
     		// Will be data to send in POST
     		let data = {};
     		// Populate data from fields
@@ -390,10 +389,10 @@
 					data[key] = this.fields[key].val;
 				}
     		// Toggle loader
-    		this.isSaving = true;				
+    		this.isSaving = true;
 				// Send request to server
 				axios.post('/bookings/start', data)
-					/* 
+					/*
 					 * Success
 					*/
 					.then((response) => {
@@ -405,14 +404,14 @@
 							this.fields[key].err = false;
 							this.fields[key].errMsg = '';
 						}
-						// Toggle saved flag 
+						// Toggle saved flag
 							this.hasSaved = true;
 							// Toggle saved flag after 3 secs
 							setTimeout(() => {
 								this.hasSaved = false;
-							}, 3000);						
+							}, 3000);
 					})
-					/* 
+					/*
 					 * Errors
 					*/
 					.catch((errors) => {
@@ -435,13 +434,13 @@
     	// Get all artists for the selct list
     	axios.get('/users/artists')
     		.then((response) => {
-    			// Cache response 
+    			// Cache response
     			this.artists = response.data;
     		})
     		.catch((response) => {
     			console.log(response);
     		});
-    }  
+    }
 	}
 </script>
 
@@ -454,7 +453,7 @@
 	}
 	.mt-35{
 		margin-top: 35px;
-	}	
+	}
 	.form-group{
 		margin-bottom: 25px;
 	}
@@ -475,7 +474,7 @@
 		width: 100%;
 		padding: 35px 0 45px 0;
 		background: #bc9355;
-		color: #fff;	
+		color: #fff;
 	}
 	#success-alert icon{
 		font-size: 45px;
@@ -486,5 +485,5 @@
 	}
 	.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
 	  opacity: 0
-	}	
+	}
 </style>

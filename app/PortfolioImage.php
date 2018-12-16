@@ -19,6 +19,6 @@ class PortfolioImage extends Model
      * @var array
      */
     protected $fillable = [
-	   'id', 'description', 'src'
-    ];    
+	   'id', 'description', 'src', 'portfolio_artist_id'
+    ];
 }

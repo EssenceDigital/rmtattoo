@@ -16,10 +16,10 @@
 @section('menu-links')
     <li><a href="#about" class="nav-link">About</a></li>
     <li><a href="#artists" class="nav-link">Artists</a></li>
-    <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+    <li><a href="{{ url('/portfolio') }}">Portfolio</a></li>
     <li><a href="#faq" class="nav-link">FAQ</a></li>
-    <li><a href="#bookings" class="nav-link">Bookings</a></li>
     <li><a href="{{ url('/precare-and-aftercare') }}" class="gold-text">Precare &amp; Aftercare</a></li>
+    <li><a href="#bookings" class="nav-link">Bookings</a></li>
 @endsection
 
 @section('content')
@@ -306,11 +306,17 @@
                         @endforeach
                     </div>
                 </div> <!-- /.col -->
+
             </div> <!-- /.row -->
+
+            <div class="row booking-form mt65">
+                <a href="{{ url('/portfolio') }}" class="btn btn-primary hvr-in" id="view-more-portfolio">View all</a>
+            </div>
 
         </div> <!--/.container-->
     </div>
     <!-- gallery end -->
+
 
     <div class="facility-area bg-color-3 pad120" id="faq">
         <div class="container">
@@ -377,9 +383,28 @@
         </div> <!--/.container-->
     </div>
 
+    <!-- call to action start -->
+    <div class="call-to-action pad80 bg-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="c2a bg-drk-trns white-text">
+                        <div class="row">
+                            <div class="col-md-12 pad80">
+                                <h3>Precare and aftercare</h3>
+                                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+                                <a href="{{ url('/precare-and-aftercare') }}" target="_blank" class="btn btn-primary hvr-in">Take me there</a>
+                            </div> <!-- /.col -->
+                        </div> <!-- /.row -->
+                    </div>
+                </div> <!-- /.col -->
+            </div> <!-- /.row -->
+        </div> <!--/.container-->
+    </div>
+    <!-- call to action end -->
 
     <!-- booking area start -->
-    <div class="booking-area bg-color-1 pad120" id="bookings">
+    <div class="booking-area bg-color-1 pad150" id="bookings">
         <div class="container">
             <div class="col-md-12">
                <div id="bookings-form">
@@ -391,33 +416,6 @@
         </div> <!--/.container-->
     </div>
     <!-- booking area end -->
-
-
-    <!-- call to action start -->
-    <div class="call-to-action pad80 bg-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="c2a bg-drk-trns white-text">
-                        <div class="row">
-                            <div class="col-md-8 pad80">
-                                <h3>Precare and aftercare</h3>
-                                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-                                <a href="{{ url('/precare-and-aftercare') }}" target="_blank" class="btn btn-primary hvr-in">Take me there</a>
-                            </div> <!-- /.col -->
-                            <div class="col-md-4 hidden-sm hidden-xs">
-                                <div class="c2a-img">
-                                    <img class="img-1" src="{{ url('_site-assets/images/others/c2a-1.jpg') }}" alt="">
-                                    <img class="img-2" src="{{ url('_site-assets/images/others/c2a-1.jpg') }}" alt="">
-                                </div>
-                            </div> <!-- /.col -->
-                        </div> <!-- /.row -->
-                    </div>
-                </div> <!-- /.col -->
-            </div> <!-- /.row -->
-        </div> <!--/.container-->
-    </div>
-    <!-- call to action end -->
 @endsection
 
 @section('scripts')
@@ -440,6 +438,8 @@
     <script src="{{ url('_site-assets/js/vendor/jquery.magnific-popup.min.js') }}"></script>
     <!--Owl Carousel js file-->
     <script src="{{ url('_site-assets/js/vendor/owl.carousel.min.js') }}"></script>
+
+
 
     <script src="{{ url('/js/site.js') }}"></script>
     <script src="{{ url('_site-assets/js/gallery.js') }}"></script>

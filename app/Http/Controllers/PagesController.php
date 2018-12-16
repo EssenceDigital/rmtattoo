@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\PortfolioImage;
 use App\Faq;
+use App\PortfolioArtist;
 
 class PagesController extends Controller
 {
@@ -23,18 +24,24 @@ class PagesController extends Controller
 	    session(['antibotquestion' => 'What is ' . $numberConversion[$numberOne] .
 	    					' added to ' . $numberConversion[$numberTwo] . ' *', 'antibotanswer' => $numberOne + $numberTwo]);
 
-
 	    // Find portfolio images
 	    $portfolioCollection = PortfolioImage::all();
-	    // Break collection into chucnks of 4
-	    $portfolioGroups = array_chunk($portfolioCollection->toArray(), 4);
-	    // Break groups of 4 into groups of 3
-	    $portfolio = array_chunk($portfolioGroups, 2);
+	    $portfolio = $portfolioCollection->toArray();
 
 	    // Find FAQs
 	    $faqs = Faq::all();
 
-
 	  	return view('home')->withFaqs($faqs)->withPortfolio($portfolio);
+    }
+
+    public function portfolio()
+    {
+      // Find portfolio images
+	    $portfolioCollection = PortfolioImage::all();
+	    $portfolio = $portfolioCollection->toArray();
+
+      $artists = PortfolioArtist::where('active', '=', true)->get();
+
+      return view('pages.portfolio')->withArtists($artists)->withPortfolio($portfolio);
     }
 }

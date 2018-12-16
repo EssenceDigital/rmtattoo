@@ -7,12 +7,20 @@
 		  	:clear="fields.src"
 		  	class="mt-3"
 		  >
-		  </image-input>				  
+		  </image-input>
+			<v-select
+      	:items="artistsSelectList"
+        v-model="fields.portfolio_artist_id"
+        label="Artist..."
+        single-line
+        auto
+        hide-details
+      >
+      </v-select>
 		  <v-text-field
 		  	class="mt-3"
 		    label="Description"
 		    v-model="fields.description"
-		    :rules="rules.description"
 		    :counter="40"
 		  ></v-text-field>
 		  <!-- Submit form -->
@@ -26,22 +34,22 @@
 		    Save
 		  </v-btn>
 		  <!-- / Submit form -->
-		</v-form>	
-		<!-- / Form -->	
-	</v-container>	
+		</v-form>
+		<!-- / Form -->
+	</v-container>
 </template>
 
 <script>
 	import ImageInput from './../_assets/Image-input';
 	import Helpers from './../../resources/helpers';
-	
+
   export default {
   	props: ['image'],
 
   	components: {
   		'image-input': ImageInput
   	},
-  	
+
     data: () => ({
       valid: false,
       isSaving: false,
@@ -49,36 +57,34 @@
       // Form data
       fields: {
       	id: '',
+				portfolio_artist_id: '',
       	description: '',
       	src: ''
-      },
-
-      // Validation rules
-      rules: {
-	      description: [
-	        (v) => v && v.length <= 50 || 'Description must be less than 50 characters'
-	      ]                 	
-      }  
+      }
     }),
-    
+
+		computed: {
+			artistsSelectList (){
+				return this.$store.getters.portfolioArtistsSelectList;
+			}
+		},
+
     methods: {
       submit () {
-        if(this.$refs.form.validate()) {
-        	console.log(this.fields);
-        	// Toggle loader
-        	this.isSaving = true;
-        	// Dispatch event to store
-        	this.$store.dispatch(this.dispatchAction, this.fields)
-        		.then((response) => {
-        			// Toggle loader
-        			this.isSaving = false;
-      				// Clear form
-      				Helpers.resetForm(this.fields);
-      				this.clear();        			
-      				// An artist was updated
-      				this.$emit('saved');
-        		});
-        }
+      	// Toggle loader
+      	this.isSaving = true;
+      	// Dispatch event to store
+      	this.$store.dispatch(this.dispatchAction, this.fields)
+      		.then((response) => {
+      			// Toggle loader
+      			this.isSaving = false;
+    				// Clear form
+    				Helpers.resetForm(this.fields);
+    				this.clear();
+    				// An artist was updated
+    				this.$emit('saved');
+      		});
+
       },
       clear () {
         this.$refs.form.reset()
@@ -100,8 +106,8 @@
     		this.valid = true;
     	}
 
-    	this.$store.dispatch('getUserArtists');
+    	//this.$store.dispatch('getUserArtists');
     }
 
-  }	
+  }
 </script>

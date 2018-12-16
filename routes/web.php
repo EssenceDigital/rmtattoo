@@ -17,15 +17,17 @@ Route::get('/precare-and-aftercare', function () {
 		return view('pages.precare-aftercare');
 });
 
+Route::get('/portfolio', 'PagesController@portfolio');
+
 Route::get('/app', 'AppController@index');
 
 /*
  * Artist related routes
 */
-Route::post('/artists/create', 'ArtistsController@create');
-Route::post('/artists/update', 'ArtistsController@update');
-Route::delete('/artists/remove/{id}', 'ArtistsController@remove');
-Route::get('/artists', 'ArtistsController@all');
+Route::post('/portfolio-artists/create', 'PortfolioArtistsController@create');
+Route::post('/portfolio-artists/update', 'PortfolioArtistsController@update');
+Route::delete('/portfolio-artists/remove/{id}', 'PortfolioArtistsController@remove');
+Route::get('/portfolio-artists', 'PortfolioArtistsController@all');
 
 /*
  * Portfolio related routes

@@ -16,13 +16,13 @@ class BookingsController extends Controller
 	 * Get all bookings.
 	 *
 	 * @return JSON Response
-	*/		
+	*/
 	public function all()
 	{
 		return Booking::with(['user', 'images'])->orderBy('created_at', 'desc')->where('date_booked', '=', null)->get();
-	}	
+	}
 
-  /** 
+  /**
    * Filters projects based on the recieved paramaters.
    *
    * @param String $status - Either 'requested' or 'confirmed'
@@ -38,10 +38,10 @@ class BookingsController extends Controller
     // Start booking query
     $query = Booking::with(['user', 'images'])->orderBy('date_booked', 'asc');
     // Add booking status field to 'where array' or not
-    if($status){    	
+    if($status){
     	if($status === 'requested'){
 	      // Push array clause
-	      array_push($queryArray, ['date_booked', '=', null]);    		
+	      array_push($queryArray, ['date_booked', '=', null]);
     	} else if($status === 'confirmed'){
     		// Push array clause
       	array_push($queryArray, ['date_booked', '<>', null]);
@@ -59,12 +59,12 @@ class BookingsController extends Controller
     if($from_date && !$to_date){
       // Push array clause
       array_push($queryArray, ['date', '=', $from_date]);
-    }        
+    }
     // Add single day (to date) to the 'where array' field or not
     if($to_date && !$from_date){
       // Push array clause
       array_push($queryArray, ['date', '=', $to_date]);
-    }  
+    }
     // Add where queries
     $query->where($queryArray);
     // If the from and to date are set then it's a dange range query and the single day loop did not run. So...
@@ -73,10 +73,10 @@ class BookingsController extends Controller
       $query->whereBetween('date', [$from_date, $to_date]);
     }
     // Now find the bookings based on 'where array'
-    $bookings = $query->get();  
+    $bookings = $query->get();
 
     // Return response for ajax call
-    return $bookings;         
+    return $bookings;
   }
 
 	/**
@@ -84,7 +84,7 @@ class BookingsController extends Controller
 	 *
 	 * @param  SaveArist $request
 	 * @return JSON Response
-	*/	
+	*/
 	public function websiteCreate(SaveWebsiteBooking $request)
 	{
 
@@ -93,8 +93,8 @@ class BookingsController extends Controller
       return response()->json([
         'result' => 'error',
         'errors' => ['captcha' => ['Captcha answer is incorrect.']]
-      ], 422);    
-    }		
+      ], 422);
+    }
 
 		// Start booking
 		$booking = new Booking;
@@ -105,7 +105,7 @@ class BookingsController extends Controller
 			// Return error is save didnt work
       return response()->json([
           'result' => 'error'
-      ], 404);  			
+      ], 404);
 		}
 
 		// Next, If there is images present in the request
@@ -115,7 +115,7 @@ class BookingsController extends Controller
 				// Construct filename for image
 				$filename = $request->first . ' ' . $request->last . ' ' . uniqid();
 				// Store the image in the bookings folder and get the path to its location - with resize to 1650w
-				$path = $this->storeImage($image, 'bookings', $filename, 1650);	
+				$path = $this->storeImage($image, 'bookings', $filename, 1650);
 				// Now we can create image entry and save to db
 				$imageEntry = new BookingImage;
 				// Populate
@@ -126,7 +126,7 @@ class BookingsController extends Controller
 					// Return error is save didnt work
 	        return response()->json([
 	            'result' => 'images-error'
-	        ], 404);  					
+	        ], 404);
 				}
 			}
 		}
@@ -134,7 +134,7 @@ class BookingsController extends Controller
 		// Return success if everything worked
     return response()->json([
         'result' => 'success'
-    ], 200); 
+    ], 200);
 	}
 
 	/**
@@ -142,7 +142,7 @@ class BookingsController extends Controller
 	 *
 	 * @param  SaveBooking $request
 	 * @return JSON Response
-	*/	
+	*/
 	public function create(SaveBooking $request)
 	{
 		// Start booking
@@ -154,12 +154,12 @@ class BookingsController extends Controller
 			// Return error is save didnt work
       return response()->json([
           'result' => 'error'
-      ], 404);  			
+      ], 404);
 		}
 		// Load foreigns
 		$booking->load('images', 'user');
 
-		return $booking; 
+		return $booking;
 	}
 
 	/**
@@ -167,15 +167,15 @@ class BookingsController extends Controller
 	 *
 	 * @param  SaveBooking $request
 	 * @return JSON Response
-	*/	
+	*/
 	public function update(SaveBooking $request)
 	{
 		// Start booking
 		$booking = Booking::with(['user', 'images'])->find($request->id);
 		// Fill booking
 		$booking->fill($request->all())->update();
-		
-		return $booking; 
+
+		return $booking;
 	}
 
 	public function addDate(Request $request)
@@ -200,12 +200,12 @@ class BookingsController extends Controller
 			// Return error is save didnt work
       return response()->json([
           'result' => 'error'
-      ], 404);  			
-		}	
+      ], 404);
+		}
 		// Update relationship
 		$booking->load('user');
 
-		return $booking;	
+		return $booking;
 	}
 
 	/**
@@ -213,7 +213,7 @@ class BookingsController extends Controller
 	 *
 	 * @param  Integer $id - ID of the booking to remove
 	 * @return JSON Response
-	*/	
+	*/
   public function remove($id)
   {
   	// Ensure key is a number
@@ -232,14 +232,14 @@ class BookingsController extends Controller
 			        // Return response for ajax call
 			        return response()->json([
 			            'result' => 'image-removal-error'
-			        ], 404);  
-		  			}   				
-	  			}  				
+			        ], 404);
+		  			}
+	  			}
   			}
   			// We made it
   			return $id;
   		}
   	}
-  }	
+  }
 
 }

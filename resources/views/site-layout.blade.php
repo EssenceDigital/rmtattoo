@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">        
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
         <title>@yield('title')</title>
 
@@ -26,7 +26,7 @@
         <meta name="msapplication-TileImage" content="{{ url('_site-assets/favicon/ms-icon-144x144.png') }}">
         <meta name="theme-color" content="#ffffff">
 
-        <!-- all stylesheets include start -->        
+        <!-- all stylesheets include start -->
         <!-- bootstrap v3.3.7 css -->
         <link rel="stylesheet" href="{{ url('_site-assets/css/vendor/bootstrap.min.css') }}">
         <!-- Page specefic styles -->
@@ -38,13 +38,13 @@
         <!-- theme style css -->
         <link rel="stylesheet" href="{{ url('_site-assets/css/style.css') }}">
         <!-- responsive css -->
-        <link rel="stylesheet" href="{{ url('_site-assets/css/responsive.css') }}">       
+        <link rel="stylesheet" href="{{ url('_site-assets/css/responsive.css') }}">
         <!-- all stylesheets include end -->
         <script>
           window.Laravel = <?php echo json_encode([
               'csrfToken' => csrf_token(),
           ]); ?>
-        </script> 
+        </script>
     </head>
     <body>
         <!-- desktop header start -->
@@ -55,7 +55,7 @@
                         <!-- bootstrap-navbar start -->
                         <nav class="navbar navbar-default">
                             <div class="container-fluid">
-                                
+
                                 <div class="navbar-header">
                                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                                         <span class="sr-only">Toggle navigation</span>
@@ -73,14 +73,14 @@
                                     <ul class="nav navbar-nav">
                                         @yield('menu-links')
                                     </ul>
-                                    
+
                                 </div><!-- /.navbar-collapse -->
                             </div> <!-- /.container-fluid -->
                         </nav>
                         <!-- bootstrap-navbar end -->
 
                     </div> <!--/.col-->
-                    
+
                 </div> <!--/.row-->
             </div> <!--/.container-->
         </div>
@@ -142,7 +142,7 @@
                                     <a href="https://www.pinterest.ca/RockyMTattoo/?eq=rocky%20mountain&etslf=4790" target="_blank">
                                         <i class="fa fa-pinterest"></i>
                                     </a>
-                                </li>                                
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -159,6 +159,6 @@
         <!-- Page specefic scripts -->
         @yield('scripts')
         <!--Appear js file-->
-        <script src="{{ url('_site-assets/js/vendor/jquery.appear.js') }}"></script>      
+        <script src="{{ url('_site-assets/js/vendor/jquery.appear.js') }}"></script>
     </body>
 </html>
