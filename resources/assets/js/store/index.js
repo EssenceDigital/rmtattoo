@@ -213,6 +213,9 @@ export const store = new Vuex.Store({
 		createPortfolioArtist (context, payload) {
 			return ApiHelper.postAction(context, payload, '/portfolio-artists/create', 'addPortfolioArtist');
 		},
+		removePortfolioArtist (context, payload) {
+			return ApiHelper.removeAction(context, '/portfolio-artists/remove/' + payload, 'updatePortfolioArtists');
+		},
 		createUser (context, payload) {
 			return ApiHelper.postAction(context, payload, '/users/create', 'addUser');
 		},
@@ -240,6 +243,16 @@ export const store = new Vuex.Store({
       // Create select array
       artists.forEach(function(artist){
         select.push({ text: artist.name, value: artist.id });
+      });
+      return select;
+		},
+		// Return the artists formatted for a vuetify select list
+		portfolioArtistsSelectListFull (state) {
+			var artists = state.portfolioArtists,
+          select = [{ text: "Artist...", value: "*" }];
+      // Create select array
+      artists.forEach(function(artist){
+        select.push({ text: artist.name, value: artist });
       });
       return select;
 		},

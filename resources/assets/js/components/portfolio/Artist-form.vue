@@ -57,7 +57,7 @@
 		<v-layout v-if="removeDialog" row justify-center>
 		  <v-dialog v-model="removeDialog" persistent>
 		    <v-card>
-		      <v-card-title class="subheading">Remove user?</v-card-title>
+		      <v-card-title class="subheading">Remove artist?</v-card-title>
 		      <v-card-actions>
 		        <v-spacer></v-spacer>
 		        <v-btn color="green darken-1" flat @click.native="removeDialog = false">Maybe Not</v-btn>
@@ -114,6 +114,9 @@
 
     watch: {
     	artist (value){
+				if(!value){
+					this.clear();
+				}
     		if(value.id){
 	    		// Change dispatch action
 	    		this.dispatchAction = 'updatePortfolioArtist';
@@ -148,7 +151,7 @@
       	// Toggle loader
       	this.isRemoving = true;
       	// Dispatch event to store
-      	this.$store.dispatch('removePortfolioArtist', this.fields.id)
+      	this.$store.dispatch('removePortfolioArtist', this.artist.id)
       		.then((response) => {
       			// Toggle loader
       			this.isRemoving = false;
@@ -173,8 +176,6 @@
     		// Show save button
     		this.valid = true;
     	}
-
-
     }
 
   }

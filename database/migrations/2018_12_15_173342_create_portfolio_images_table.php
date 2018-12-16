@@ -16,7 +16,7 @@ class CreatePortfolioImagesTable extends Migration
         Schema::create('portfolio_images', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('portfolio_artist_id')->unsigned();
-            $table->foreign('portfolio_artist_id')->references('id')->on('portfolio_artists');      
+            $table->foreign('portfolio_artist_id')->references('id')->on('portfolio_artists')->onDelete('cascade');;      
             $table->string('src');
             $table->string('description', 30)->nullable();
             $table->timestamps();

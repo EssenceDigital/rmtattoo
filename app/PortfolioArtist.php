@@ -21,4 +21,12 @@ class PortfolioArtist extends Model
   protected $fillable = [
      'id', 'name', 'active'
   ];
+
+  /**
+   * Get images
+   */
+  public function images()
+  {
+      return $this->hasMany('App\PortfolioImage');
+  }
 }

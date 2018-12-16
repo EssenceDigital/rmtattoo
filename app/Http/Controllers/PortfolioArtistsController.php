@@ -65,4 +65,41 @@ class PortfolioArtistsController extends Controller
 		return $artist;
 	}
 
+	/**
+	 * Remove an artist and all associated images
+	 *
+	 * @param  Integer $id - ID of the booking to remove
+	 * @return JSON Response
+	*/
+  public function remove($id)
+  {
+		// For ACL, only allows supplied roles to access this method
+		$this->authorizeRoles(['admin']);
+
+  	// Ensure key is a number
+  	if(is_numeric($id)){
+  		// Find artist first because we need the avatar image path
+  		$artist = PortfolioArtist::with(['images'])->find($id);
+  		// Cache images
+  		$images = $artist->images->toArray();
+  		// Remove Booking
+  		if($artist->delete()){
+  			// If there are images present...
+  			//if(count($images > 0)){
+	  			// Remove each image
+	  			forEach($images as $img){
+		  			if(! unlink(storage_path() . '/app/public/' . $img['src'])){
+			        // Return response for ajax call
+			        return response()->json([
+			            'result' => 'image-removal-error'
+			        ], 404);
+		  			}
+	  			}
+  			//}
+  			// We made it, for ease of use, pass back the remaining artist
+  			return PortfolioArtist::orderBy('created_at', 'desc')->get();
+  		}
+  	}
+  }
+
 }

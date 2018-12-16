@@ -21,4 +21,12 @@ class PortfolioImage extends Model
     protected $fillable = [
 	   'id', 'description', 'src', 'portfolio_artist_id'
     ];
+
+    /**
+     * Get the artist
+     */
+    public function booking()
+    {
+        return $this->belongsTo('App\PortfolioArtist');
+    }
 }

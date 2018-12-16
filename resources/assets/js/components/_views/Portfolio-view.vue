@@ -1,4 +1,4 @@
-<template>
+<template v-if="images && artistsSelectList">
 	<div>
 		<!-- Top toolbar -->
 		<v-toolbar card dark prominent>
@@ -6,22 +6,23 @@
       	Portfolio
       </v-toolbar-title>
       <v-btn
+				color="primary"
 				@click="addImageDialog = true"
-      	flat
       >
         <v-icon left>
-        	add_a_photo
+        	add_photo_alternate
         </v-icon>
-        Image
+				Image
       </v-btn>
 			<v-btn
-				@click="addArtistDialog = true"
-      	flat
+				color="primary"
+				class="ml-3"
+				@click="artistDialog = true"
       >
         <v-icon left>
-        	add
+        	edit
         </v-icon>
-        Portfolio Artist
+        Artists
       </v-btn>
     </v-toolbar>
     <!-- / Top toolbar -->
@@ -55,27 +56,45 @@
         </v-card-title>
         <v-card-text>
         	<!-- Form to add image -->
-        	<portfolio-form @saved="addImageDialog = false"></portfolio-form>
+        	<portfolio-form
+						@saved="closeArtistDialog"
+						@add-artist="artistDialog = true"
+					></portfolio-form>
         </v-card-text>
       </v-card>
     </v-dialog>
 
-		<!-- Add artist dialog -->
-    <v-dialog v-model="addArtistDialog" persistent max-width="500px">
+		<!-- Edit artist dialog -->
+    <v-dialog v-model="artistDialog" persistent max-width="500px">
       <v-card>
         <v-card-title>
           <span class="subheading">Add artist</span>
           <v-spacer></v-spacer>
           <v-btn
-          	@click="addArtistDialog = false"
+          	@click="closeArtistDialog"
           	icon
           >
           	<v-icon>close</v-icon>
           </v-btn>
         </v-card-title>
         <v-card-text>
+					<v-container fluid>
+						<v-select
+							:items="artistsSelectList"
+							v-model="selectedArtist"
+							label="Artist..."
+							single-line
+							auto
+							hide-details
+						>
+						</v-select>
+					</v-container>
+
         	<!-- Form to add image -->
-					<artist-form @saved="addArtistDialog = false"></artist-form>
+					<artist-form
+						:artist="selectedArtist"
+						@saved="closeArtistDialog"
+					></artist-form>
         </v-card-text>
       </v-card>
     </v-dialog>
@@ -98,13 +117,27 @@
 		computed: {
 			images () {
 				return this.$store.getters.portfolioImages;
+			},
+			artistsSelectList (){
+				return this.$store.getters.portfolioArtistsSelectListFull;
 			}
 		},
 
 		data: () => ({
 			addImageDialog: false,
-			addArtistDialog: false
+			artistDialog: false,
+			selectedArtist: ''
 		}),
+
+		methods: {
+			closeArtistDialog (){
+				// Reset artist
+				this.selectedArtist = '';
+				// Close dialog
+				this.artistDialog = false;
+			}
+
+		},
 
 		created () {
 			this.$store.dispatch('getPortfolioImages');

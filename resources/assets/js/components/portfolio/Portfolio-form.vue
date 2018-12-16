@@ -8,15 +8,31 @@
 		  	class="mt-3"
 		  >
 		  </image-input>
-			<v-select
-      	:items="artistsSelectList"
-        v-model="fields.portfolio_artist_id"
-        label="Artist..."
-        single-line
-        auto
-        hide-details
-      >
-      </v-select>
+			<v-layout row>
+				<v-flex xs11>
+					<v-select
+		      	:items="artistsSelectList"
+		        v-model="fields.portfolio_artist_id"
+		        label="Artist..."
+		        single-line
+		        auto
+		        hide-details
+		      >
+		      </v-select>
+				</v-flex>
+				<v-flex xs1>
+					<v-btn
+						color="primary"
+						icon
+						class="mt-3"
+						@click="$emit('add-artist')"
+
+					>
+						<v-icon>add</v-icon>
+					</v-btn>
+				</v-flex>
+			</v-layout>
+
 		  <v-text-field
 		  	class="mt-3"
 		    label="Description"

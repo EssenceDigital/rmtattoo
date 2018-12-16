@@ -20,7 +20,7 @@ class Booking extends Model
      */
     protected $fillable = [
        'id', 'first', 'last', 'phone', 'email', 'user_id', 'tattoo_size', 'description', 'location', 'color_preference', 'tattoo_style', 'budget'
-    ]; 
+    ];
 
     /**
      * Get the prefered artist/user
@@ -29,12 +29,5 @@ class Booking extends Model
     {
         return $this->belongsTo('App\User');
     }
-
-    /**
-     * Get images
-     */
-    public function images()
-    {
-        return $this->hasMany('App\BookingImage');
-    }    
+  
 }
