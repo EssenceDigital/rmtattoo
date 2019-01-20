@@ -19,7 +19,7 @@ class Booking extends Model
      * @var array
      */
     protected $fillable = [
-       'id', 'first', 'last', 'phone', 'email', 'user_id', 'tattoo_size', 'description', 'location', 'color_preference', 'tattoo_style', 'budget'
+       'id', 'first', 'last', 'phone', 'email', 'artist', 'tattoo_size', 'description', 'location', 'color_preference', 'tattoo_style', 'budget'
     ];
 
     /**
@@ -29,5 +29,5 @@ class Booking extends Model
     {
         return $this->belongsTo('App\User');
     }
-  
+
 }

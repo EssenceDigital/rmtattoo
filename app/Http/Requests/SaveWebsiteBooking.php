@@ -29,7 +29,7 @@ class SaveWebsiteBooking extends FormRequest
             'last' => 'required|max:25',
             'phone' => 'required|max:14',
             'email' => 'required|email',
-            'user_id' => 'numeric|nullable',
+            'artist' => 'max:35|nullable',
             'tattoo_size' => 'required|max:65',
             'description' => 'required|max:255',
             'location' => 'required|max:65',

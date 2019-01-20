@@ -55,7 +55,7 @@
                         data-responsive_offset="on"
 
                         style="z-index: 5; white-space: nowrap; font-family: 'Open Sans', sans-serif;">
-                        LOREM IPSUM DOLAR SIT AMET, CONSECTETUR
+                        A PREMIER TATTOO & PIERCING STUDIO IN LETHBRIDGE, ALBERTA
                     </div>
 
                     <!-- LAYER NR. 2 -->
@@ -78,7 +78,7 @@
                         data-splitout="none"
                         data-responsive_offset="on"
 
-                        style="z-index: 6; white-space: nowrap; font-family: Cinzel;">EXCEPTEUR SINT OCCAECA,
+                        style="z-index: 6; white-space: nowrap; font-family: Cinzel;">THE ONE AND ONLY
                     </div>
 
                     <!-- LAYER NR. 3 -->
@@ -143,7 +143,7 @@
                     <div class="section-title text-center">
                         <img src="{{ url('_site-assets/images/title-img/title-img-1.png') }}" class="title-img mb15" alt="">
                         <h3 class="title">About <strong>RMT</strong></h3>
-                        <p class="sub-title">At vero eos et accusamus et iusto odio Lethbridge, Alberta</p>
+                        <p class="sub-title">Delivering high quality work to Lethbridge, Alberta</p>
                     </div>
                 </div> <!-- /.col -->
             </div> <!-- /.row -->
@@ -151,8 +151,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut
-                      officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.</p>
+                    <p>A brand new, premier studio offering professional tattooing, piercing, laser removal and microblading. It is both our mission and duty
+                      to provide only the highest quality services in accordance with the most relevant, evidence-based health practice standards made available
+                      by our governing health authority.</p>
+                      <p>We also host an array of live music events and productions. For up-to-date event information, make sure that
+                      you follow our Facebook page and have notifications turned on.</p>
                 </div> <!-- /.col -->
             </div> <!-- /.row -->
             <div class="row mt20">
@@ -168,116 +171,7 @@
     </div>
     <!-- service area end -->
 
-    <!-- team area start -->
-    <div class="team-area bg-color-2 pad120" id="artists">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="section-title text-center">
-                        <img src="{{ url('_site-assets/images/title-img/title-img-2.png') }}" class="title-img mb15" alt="">
-                        <h3 class="title">The <strong>artists</strong></h3>
-                        <p class="sub-title">Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus</p>
-                    </div>
-                </div> <!-- /.col -->
-            </div> <!-- /.row -->
-        </div> <!--/.container-->
-        <div class="container">
-            <div class="row">
 
-                <div class="owl-carousel owl-theme">
-
-                    <div class="slide-item">
-                        <div class="team-box text-center xs-mb30">
-                            <div class="team-img">
-                                <img src="{{ url('_site-assets/images/artists/artist-1.jpg') }}" alt="" class="img-responsive team-image">
-                                <div class="overley">
-                                    <div class="team-social">
-                                        <a href="#"><i class="fa fa-instagram"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="team-content">
-                                <h4>Leigh</h4>
-                                <p>&nbsp;</p>
-                            </div>
-                        </div> <!--/.team-box-->
-                    </div> <!-- /.col -->
-
-                    <div class="slide-item">
-                        <div class="team-box text-center xs-mb30">
-                            <div class="team-img">
-                                <img src="{{ url('_site-assets/images/artists/artist-1.jpg') }}" alt="" class="img-responsive team-image">
-                                <div class="overley">
-                                    <div class="team-social">
-                                        <a href="#"><i class="fa fa-instagram"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="team-content">
-                                <h4>Ricky</h4>
-                                <p>&nbsp;</p>
-                            </div>
-                        </div> <!--/.team-box-->
-                    </div> <!-- /.col -->
-
-                    <div class="slide-item">
-                        <div class="team-box text-center xs-mb30">
-                            <div class="team-img">
-                                <img src="{{ url('_site-assets/images/artists/artist-1.jpg') }}" alt="" class="img-responsive team-image">
-                                <div class="overley">
-                                    <div class="team-social">
-                                        <a href="#"><i class="fa fa-instagram"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="team-content">
-                                <h4>Dillan</h4>
-                                <p>&nbsp;</p>
-                            </div>
-                        </div> <!--/.team-box-->
-                    </div> <!-- /.col -->
-
-                    <div class="slide-item">
-                        <div class="team-box text-center xs-mb30">
-                            <div class="team-img">
-                                <img src="{{ url('_site-assets/images/artists/artist-1.jpg') }}" alt="" class="img-responsive team-image">
-                                <div class="overley">
-                                    <div class="team-social">
-                                        <a href="#"><i class="fa fa-instagram"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="team-content">
-                                <h4>Jaim</h4>
-                                <p>&nbsp;</p>
-                            </div>
-                        </div> <!--/.team-box-->
-                    </div> <!-- /.col -->
-
-                    <div class="slide-item">
-                        <div class="team-box text-center xs-mb30">
-                            <div class="team-img">
-                                <img src="{{ url('_site-assets/images/artists/artist-1.jpg') }}" alt="" class="img-responsive team-image">
-                                <div class="overley">
-                                    <div class="team-social">
-                                        <a href="#"><i class="fa fa-instagram"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="team-content">
-                                <h4>Nikole</h4>
-                                <p>&nbsp;</p>
-                            </div>
-                        </div> <!--/.team-box-->
-                    </div> <!-- /.col -->
-
-                </div>
-
-            </div> <!-- /.row -->
-
-        </div> <!--/.container-->
-    </div>
-    <!-- team area end -->
 
     <!-- gallery area start -->
     <div class="hair-style pad120 parallax bg-3" id="portfolio">
@@ -286,10 +180,9 @@
             <div class="row">
                <div class="col-md-4">
                     <div class="section-title-left">
-                        <h3 class="title">Quis nostrum exercitationem ullam corporis suscipit?</h3>
+                        <h3 class="title">Talented and dedicated artists for all styles</h3>
                         <p>
-                            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                        </p>
+                          Our artists love to push their craft to the limit. Make your choice wisely.
                     </div>
                 </div> <!-- /.col -->
 
@@ -388,11 +281,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="c2a bg-drk-trns white-text">
+                    <div class="c2a bg-drk-trns white-text" style="padding-right:80px;">
                         <div class="row">
                             <div class="col-md-12 pad80">
                                 <h3>Precare and aftercare</h3>
-                                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+                                <p>If you want high quality tattoo that heals fast and looks good, don't overlook these two import areas. Luckily,
+                                  we have created a detailed guide to help you along the way.</p>
                                 <a href="{{ url('/precare-and-aftercare') }}" target="_blank" class="btn btn-primary hvr-in">Take me there</a>
                             </div> <!-- /.col -->
                         </div> <!-- /.row -->

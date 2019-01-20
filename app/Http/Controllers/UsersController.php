@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\User;
 
-/** 
+/**
  * Handles all generic user related actions.
 */
 class UsersController extends Controller
@@ -22,14 +22,13 @@ class UsersController extends Controller
         'name' => 'required|string|max:30',
         'email' => 'required|string|email|max:50|unique:users',
         'role' => 'required|string|max:10',
-        'password' => 'required|string|min:6|confirmed',
-        'is_artist' => 'required|boolean'
+        'password' => 'required|string|min:6|confirmed'
     ];
 
     /**
      * Validates request data and then adds it to a model. Helper method used by store() and update()
      *
-     * @param  \Illuminate\Http\Request $request     
+     * @param  \Illuminate\Http\Request $request
      * @return App\Model
      */
     private function validateUser(Request $request, User $user)
@@ -46,7 +45,7 @@ class UsersController extends Controller
             // Append the id to the email field to ensure 'unique' validator works properly for an update
             if($user->id && $key == 'email') $fields[$key] =  $fields[$key] . ',id,' . $user->id;
         }
-       
+
         // Validate or stop proccessing
         $this->validate($request, $fields);
 
@@ -56,14 +55,14 @@ class UsersController extends Controller
             if($user->id && $key == 'password'){
                 continue;
             }
-            // Bcrypt if it's the password field 
+            // Bcrypt if it's the password field
             if($key == 'password'){
                 $user->password = bcrypt($val);
             } else {
                 // Add regular fields to model
                 $user->$key = $request->$key;
             }
-            
+
         }
 
         return $user;
@@ -79,17 +78,7 @@ class UsersController extends Controller
         // For ACL, only allows supplied roles to access this method
         $this->authorizeRoles(['admin']);
         // Fetch users
-        return User::all();       
-    }
-
-    /**
-     * Get all users that are also artists.
-     *
-     * @return JSON Response
-    */      
-    public function artists()
-    {
-        return User::where('is_artist', '=', 1)->get();
+        return User::all();
     }
 
     /**
@@ -109,7 +98,7 @@ class UsersController extends Controller
         return response()->json([
             'result' => 'success',
             'payload' => $user
-        ], 200);        
+        ], 200);
     }
 
     /**
@@ -142,7 +131,7 @@ class UsersController extends Controller
 	 *
 	 * @param  SaveFaq $request
 	 * @return JSON Response
-	*/	
+	*/
 	public function update(Request $request)
 	{
         // For ACL, only allows supplied roles to access this method
@@ -203,19 +192,19 @@ class UsersController extends Controller
 
         // Return successful response for ajax call
         return $user;
-    }  
+    }
 
 	/**
 	 * Remove a user
 	 *
 	 * @param  Integer $id - ID of the user to remove
 	 * @return JSON Response
-	*/	
+	*/
   public function remove($id)
   {
     // For ACL, only allows supplied roles to access this method
-    $this->authorizeRoles(['admin']); 
-       
+    $this->authorizeRoles(['admin']);
+
     // Ensure key is a number
     if(is_numeric($id)){
         // Find user
@@ -224,8 +213,8 @@ class UsersController extends Controller
         // Remove user
         if($user->delete()){
             // Return response for ajax call
-            return $id;               
-        }        
+            return $id;
+        }
     }
   }
 

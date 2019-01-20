@@ -14,7 +14,7 @@ class PortfolioController extends Controller
 	 * Get all portfolio images
 	 *
 	 * @return JSON Response
-	*/		
+	*/
 	public function allImages()
 	{
 		return PortfolioImage::all();
@@ -25,7 +25,7 @@ class PortfolioController extends Controller
 	 *
 	 * @param  SavePortfolioImage $request
 	 * @return JSON Response
-	*/	
+	*/
 	public function createImage(SavePortfolioImage $request)
 	{
         // For ACL, only allows supplied roles to access this method
@@ -44,11 +44,11 @@ class PortfolioController extends Controller
 		 *
 		 * @param  Integer $id - ID of the image to remove
 		 * @return JSON Response
-		*/	
+		*/
     public function remove($id)
     {
         // For ACL, only allows supplied roles to access this method
-        $this->authorizeRoles(['admin']);    	
+        $this->authorizeRoles(['admin']);
 
     	// Ensure key is a number
     	if(is_numeric($id)){
@@ -64,8 +64,8 @@ class PortfolioController extends Controller
 		        return response()->json([
 		            'result' => 'success',
 		            'payload' => $id
-		        ], 200);  
-    			}    			
+		        ], 200);
+    			}
     		}
     	}
     }

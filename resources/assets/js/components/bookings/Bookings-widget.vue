@@ -116,13 +116,13 @@
 			    	<!-- Input col -->
 			    	<div class="col-md-6">
 			    		<div class="form-group">
-			          <select v-model="fields.user_id.val" class="form-control">
+			          <select v-model="fields.artist.val" class="form-control">
 			            <option value="">Prefered Artist...</option>
-			            <option v-for="artist in artists" :value="artist.id">
+			            <option v-for="artist in artists" :value="artist.name">
 			            	{{ artist.name }}
 			            </option>
 			          </select>
-			          <div class="help-block with-errors gold-text">{{ fields.user_id.errMsg }}</div>
+			          <div class="help-block with-errors gold-text">{{ fields.artist.errMsg }}</div>
 			    		</div>
 			    	</div>
 			    	<!-- / Input col -->
@@ -302,7 +302,7 @@
       	last: { val: '', err: false, errMsg: '', dflt: '' },
       	phone: { val: '', err: false, errMsg: '', dflt: '' },
       	email: { val: '', err: false, errMsg: '', dflt: '' },
-      	user_id: { val: '', err: false, errMsg: '', dflt: '' },
+      	artist: { val: '', err: false, errMsg: '', dflt: '' },
       	tattoo_size: { val: '', err: false, errMsg: '', dflt: '' },
       	description: { val: '', err: false, errMsg: '', dflt: '' },
       	location: { val: '', err: false, errMsg: '', dflt: '' },
@@ -359,7 +359,7 @@
     			// Skip images field
     			if(key === 'images') continue;
     			// Skip artist field
-    			if(key === 'user_id') continue;
+    			if(key === 'artist') continue;
     			// If the field is blank or less than 3 chars then mark as error state
     			if(this.fields[key].val == ''){
     				this.fields[key].err = true;
@@ -432,7 +432,7 @@
 
     created () {
     	// Get all artists for the selct list
-    	axios.get('/users/artists')
+    	axios.get('/booking-artists')
     		.then((response) => {
     			// Cache response
     			this.artists = response.data;

@@ -29,6 +29,11 @@ Route::post('/portfolio-artists/update', 'PortfolioArtistsController@update');
 Route::delete('/portfolio-artists/remove/{id}', 'PortfolioArtistsController@remove');
 Route::get('/portfolio-artists', 'PortfolioArtistsController@all');
 
+Route::post('/booking-artists/create', 'BookingArtistsController@create');
+Route::post('/booking-artists/update', 'BookingArtistsController@update');
+Route::delete('/booking-artists/remove/{id}', 'BookingArtistsController@remove');
+Route::get('/booking-artists', 'BookingArtistsController@all');
+
 /*
  * Portfolio related routes
 */
@@ -48,12 +53,6 @@ Route::get('/faqs', 'FaqsController@all');
  * Booking related routes
 */
 Route::post('/bookings/start', 'BookingsController@websiteCreate');
-Route::post('/bookings/create', 'BookingsController@create');
-Route::post('/bookings/update', 'BookingsController@update');
-Route::post('/bookings/add-date', 'BookingsController@addDate');
-Route::delete('/bookings/remove/{id}', 'BookingsController@remove');
-Route::get('/bookings', 'BookingsController@all');
-Route::get('/bookings/{status}/{artist}/{from_date}/{to_date}', 'BookingsController@filter');
 
 /*
  * Auth related routes

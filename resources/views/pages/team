@@ -1,0 +1,110 @@
+<!-- team area start -->
+<div class="team-area bg-color-2 pad120" id="artists">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="section-title text-center">
+                    <img src="{{ url('_site-assets/images/title-img/title-img-2.png') }}" class="title-img mb15" alt="">
+                    <h3 class="title">The <strong>artists</strong></h3>
+                    <p class="sub-title">Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus</p>
+                </div>
+            </div> <!-- /.col -->
+        </div> <!-- /.row -->
+    </div> <!--/.container-->
+    <div class="container">
+        <div class="row">
+
+            <div class="owl-carousel owl-theme">
+
+                <div class="slide-item">
+                    <div class="team-box text-center xs-mb30">
+                        <div class="team-img">
+                            <img src="{{ url('_site-assets/images/artists/artist-1.jpg') }}" alt="" class="img-responsive team-image">
+                            <div class="overley">
+                                <div class="team-social">
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-content">
+                            <h4>Leigh</h4>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div> <!--/.team-box-->
+                </div> <!-- /.col -->
+
+                <div class="slide-item">
+                    <div class="team-box text-center xs-mb30">
+                        <div class="team-img">
+                            <img src="{{ url('_site-assets/images/artists/artist-1.jpg') }}" alt="" class="img-responsive team-image">
+                            <div class="overley">
+                                <div class="team-social">
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-content">
+                            <h4>Ricky</h4>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div> <!--/.team-box-->
+                </div> <!-- /.col -->
+
+                <div class="slide-item">
+                    <div class="team-box text-center xs-mb30">
+                        <div class="team-img">
+                            <img src="{{ url('_site-assets/images/artists/artist-1.jpg') }}" alt="" class="img-responsive team-image">
+                            <div class="overley">
+                                <div class="team-social">
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-content">
+                            <h4>Dillan</h4>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div> <!--/.team-box-->
+                </div> <!-- /.col -->
+
+                <div class="slide-item">
+                    <div class="team-box text-center xs-mb30">
+                        <div class="team-img">
+                            <img src="{{ url('_site-assets/images/artists/artist-1.jpg') }}" alt="" class="img-responsive team-image">
+                            <div class="overley">
+                                <div class="team-social">
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-content">
+                            <h4>Jaim</h4>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div> <!--/.team-box-->
+                </div> <!-- /.col -->
+
+                <div class="slide-item">
+                    <div class="team-box text-center xs-mb30">
+                        <div class="team-img">
+                            <img src="{{ url('_site-assets/images/artists/artist-1.jpg') }}" alt="" class="img-responsive team-image">
+                            <div class="overley">
+                                <div class="team-social">
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="team-content">
+                            <h4>Nikole</h4>
+                            <p>&nbsp;</p>
+                        </div>
+                    </div> <!--/.team-box-->
+                </div> <!-- /.col -->
+
+            </div>
+
+        </div> <!-- /.row -->
+
+    </div> <!--/.container-->
+</div>
+<!-- team area end -->

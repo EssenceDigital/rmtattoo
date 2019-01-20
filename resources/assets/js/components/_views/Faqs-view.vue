@@ -5,12 +5,12 @@
       <v-toolbar-title class="headline primary--text mr-5">
       	FAQs
       </v-toolbar-title>
-      <v-btn 
-				@click="addFaqDialog = true"       	
-      	flat
+      <v-btn
+				color="primary"
+				@click="addFaqDialog = true"
       >
         <v-icon left>
-        	add
+        	note_add
         </v-icon>
         FAQ
       </v-btn>
@@ -22,7 +22,7 @@
 			<v-layout row>
 				<faqs-expansion :faqs="faqs"></faqs-expansion>
 			</v-layout>
-		</v-container>   
+		</v-container>
 		<!-- / Faq expansion panel container -->
 		<!-- Add faq dialog -->
 	  <v-layout row justify-center>
@@ -31,7 +31,7 @@
 	        <v-card-title>
 	          <span class="subheading">Add question</span>
 	          <v-spacer></v-spacer>
-	          <v-btn 
+	          <v-btn
 	          	@click="addFaqDialog = false"
 	          	icon
 	          >
@@ -44,7 +44,7 @@
 	      </v-card>
 	    </v-dialog>
 	  </v-layout>
-	  <!-- /Add faq dialog -->	 	
+	  <!-- /Add faq dialog -->
 	</div>
 
 </template>

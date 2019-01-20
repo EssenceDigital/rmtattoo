@@ -15,9 +15,9 @@ export const store = new Vuex.Store({
 	state: {
 		portfolioImages: [],
 		faqs: [],
-		bookings: [],
 		users: [],
-		portfolioArtists: []
+		portfolioArtists: [],
+		bookingArtists: []
 	},
 
 	/**
@@ -84,29 +84,6 @@ export const store = new Vuex.Store({
 			return state.faqs.splice(index, 1);
 		},
 
-
-		updateBookings (state, payload) {
-			state.bookings = payload;
-		},
-		addBooking (state, payload) {
-			return state.bookings.push(payload);
-		},
-		updateBooking (state, payload) {
-			// Get index of updated payload
-			let index = Helpers.pluckObjectById(state.bookings, 'id', payload.id),
-					oldBooking = state.bookings[index];
-			// Have to remove to trigger computed prop in components
-			state.bookings.splice(index, 1);
-
-			return state.bookings.splice(index, 0, payload);
-		},
-		removeBooking (state, payload) {
-			// Get index of item to remove
-			let index = Helpers.pluckObjectById(state.bookings, 'id', payload);
-			// Remove
-			return state.bookings.splice(index, 1);
-		},
-
 		updateUsers (state, payload) {
 			return state.users = payload;
 		},
@@ -115,6 +92,12 @@ export const store = new Vuex.Store({
 		},
 		addPortfolioArtist (state, payload) {
 			return state.portfolioArtists.push(payload);
+		},
+		updateBookingArtists (state, payload) {
+			return state.bookingArtists = payload;
+		},
+		addBookingArtist (state, payload) {
+			return state.bookingArtists.push(payload);
 		},
 		addUser (state, payload) {
 			return state.users.push(payload);
@@ -187,23 +170,6 @@ export const store = new Vuex.Store({
 			// Use api to send the request
 			return ApiHelper.getAction(context, url, 'updateBookings');
 		},
-		createBooking (context, payload) {
-			return ApiHelper.postAction(context, payload, '/bookings/create', 'addBooking');
-		},
-		updateBooking (context, payload) {
-			return ApiHelper.postAction(context, payload, '/bookings/update', 'updateBooking');
-		},
-		saveBookingDate (context, payload, mutation) {
-			return ApiHelper.postAction(context, payload, '/bookings/add-date', 'removeBooking');
-		},
-		updateBookingDate (context, payload, mutation) {
-			return ApiHelper.postAction(context, payload, '/bookings/add-date', 'updateBooking');
-		},
-		removeBooking (context, payload) {
-			return ApiHelper.removeAction(context, '/bookings/remove/' + payload, 'removeBooking');
-		},
-
-
 		getUsers (context, payload) {
 			return ApiHelper.getAction(context, '/users', 'updateUsers');
 		},
@@ -213,8 +179,23 @@ export const store = new Vuex.Store({
 		createPortfolioArtist (context, payload) {
 			return ApiHelper.postAction(context, payload, '/portfolio-artists/create', 'addPortfolioArtist');
 		},
+		updatePortfolioArtist (context, payload) {
+			return ApiHelper.postAction(context, payload, '/portfolio-artists/update', 'updatePortfolioArtists');
+		},
 		removePortfolioArtist (context, payload) {
 			return ApiHelper.removeAction(context, '/portfolio-artists/remove/' + payload, 'updatePortfolioArtists');
+		},
+		getBookingArtists (context, payload) {
+			return ApiHelper.getAction(context, '/booking-artists', 'updateBookingArtists');
+		},
+		createBookingArtist (context, payload) {
+			return ApiHelper.postAction(context, payload, '/booking-artists/create', 'addBookingArtist');
+		},
+		updateBookingArtist (context, payload) {
+			return ApiHelper.postAction(context, payload, '/booking-artists/update', 'updateBookingArtists');
+		},
+		removeBookingArtist (context, payload) {
+			return ApiHelper.removeAction(context, '/booking-artists/remove/' + payload, 'updateBookingArtists');
 		},
 		createUser (context, payload) {
 			return ApiHelper.postAction(context, payload, '/users/create', 'addUser');
@@ -258,6 +239,26 @@ export const store = new Vuex.Store({
 		},
 		portfolioImages (state) {
 			return state.portfolioImages;
+		},
+		// Return the artists formatted for a vuetify select list
+		bookingArtistsSelectList (state) {
+			var artists = state.bookingArtists,
+          select = [{ text: "Artist...", value: "*" }];
+      // Create select array
+      artists.forEach(function(artist){
+        select.push({ text: artist.name, value: artist.id });
+      });
+      return select;
+		},
+		// Return the artists formatted for a vuetify select list
+		bookingArtistsSelectListFull (state) {
+			var artists = state.bookingArtists,
+          select = [{ text: "Artist...", value: "*" }];
+      // Create select array
+      artists.forEach(function(artist){
+        select.push({ text: artist.name, value: artist });
+      });
+      return select;
 		},
 		faqs (state) {
 			return state.faqs;

@@ -90,7 +90,7 @@
       isSaving: false,
       isRemoving: false,
       removeDialog: false,
-      dispatchAction: 'createPortfolioArtist',
+      dispatchAction: 'createBookingArtist',
       // Form data
       fields: {
       	id: '',
@@ -116,7 +116,7 @@
 				}
     		if(value.id){
 	    		// Change dispatch action
-	    		this.dispatchAction = 'updatePortfolioArtist';
+	    		this.dispatchAction = 'updateBookingArtist';
 	    		// Populate Form
 	    		Helpers.populateForm(this.fields, value);
     		}
@@ -148,7 +148,7 @@
       	// Toggle loader
       	this.isRemoving = true;
       	// Dispatch event to store
-      	this.$store.dispatch('removePortfolioArtist', this.artist.id)
+      	this.$store.dispatch('removeBookingArtist', this.artist.id)
       		.then((response) => {
       			// Toggle loader
       			this.isRemoving = false;

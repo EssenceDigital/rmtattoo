@@ -1,4 +1,4 @@
-/* 
+/*
  * Users view. Holds all user related actions.
 */
 <template>
@@ -8,12 +8,12 @@
       <v-toolbar-title class="headline primary--text mr-5">
       	Users
       </v-toolbar-title>
-      <v-btn 
-				@click="addUserDialog = true"       	
-      	flat
+      <v-btn
+        color="primary"
+				@click="addUserDialog = true"
       >
         <v-icon left>
-        	add_box
+        	person_add
         </v-icon>
         User
       </v-btn>
@@ -25,9 +25,9 @@
 			<v-layout row wrap>
 				<v-flex xs12>
 					<users-table></users-table>
-				</v-flex>				
+				</v-flex>
 			</v-layout>
-		</v-container>   
+		</v-container>
 		<!-- / Users table container -->
 		<!-- Add user dialog -->
 	  <v-layout row justify-center>
@@ -36,7 +36,7 @@
 	        <v-card-title>
 	          <span class="subheading">Create user</span>
 	          <v-spacer></v-spacer>
-	          <v-btn 
+	          <v-btn
 	          	@click="addUserDialog = false"
 	          	icon
 	          >
@@ -49,7 +49,7 @@
 	      </v-card>
 	    </v-dialog>
 	  </v-layout>
-	  <!-- /Add user dialog -->	 	
+	  <!-- /Add user dialog -->
 	</div>
 
 </template>

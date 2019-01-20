@@ -25,17 +25,17 @@
         	{ text: 'Admin', value: 'admin' }
         ]"
         v-model="fields.role"
-		    :rules="rules.role"        
+		    :rules="rules.role"
         label="Role..."
         class="mt-3"
         single-line
         auto
         prepend-icon="lock_outline"
         hide-details
-      ></v-select>	
+      ></v-select>
 
       <div v-if="!user">
-	      <v-divider class="mt-5 mb-3"></v-divider>	  
+	      <v-divider class="mt-5 mb-3"></v-divider>
 			  <v-text-field
 			  	class="mt-2"
 			    label="Password"
@@ -53,23 +53,8 @@
 			    :counter="30"
 			    required
 			    type="password"
-			  ></v-text-field>      	
-      </div>     
-
-			<v-select
-        :items="[
-        	{ text: 'No', value: 0 },
-        	{ text: 'Yes', value: 1 }
-        ]"
-        v-model="fields.is_artist"
-		    :rules="rules.is_artist"        
-        label="Artist...?"
-        class="mt-3"
-        single-line
-        auto
-        hide-details
-      ></v-select>
-
+			  ></v-text-field>
+      </div>
 		  <!-- Submit form -->
 		  <v-btn
 		    @click="submit"
@@ -91,12 +76,12 @@
 			  	slot="activator"
 			  >
 			  	<v-icon>delete_sweep</v-icon>
-			  </v-btn>		  
-			  <span>Remove</span>	
+			  </v-btn>
+			  <span>Remove</span>
 		  </v-tooltip>
 		  <!-- / Delete user -->
-		</v-form>	
-		<!-- / Form -->	
+		</v-form>
+		<!-- / Form -->
 
 		<!-- Remove dialog -->
 		<v-layout v-if="removeDialog" row justify-center>
@@ -106,19 +91,19 @@
 		      <v-card-actions>
 		        <v-spacer></v-spacer>
 		        <v-btn color="green darken-1" flat @click.native="removeDialog = false">Maybe Not</v-btn>
-		        <v-btn 
-		        	@click.native="remove"		        
+		        <v-btn
+		        	@click.native="remove"
 					  	:disabled="isRemoving"
-					  	:loading="isRemoving"		        
-		        	color="red darken-1" 
-		        	flat 
+					  	:loading="isRemoving"
+		        	color="red darken-1"
+		        	flat
 		        >
 		        	Yes
 		        </v-btn>
 		      </v-card-actions>
 		    </v-card>
 		  </v-dialog>
-		</v-layout>		
+		</v-layout>
 		<!-- / Remove dialog -->
 
 	</v-container>
@@ -126,7 +111,7 @@
 
 <script>
 	import Helpers from './../../resources/helpers';
-	
+
   export default {
   	props: ['user', 'name'],
 
@@ -139,7 +124,6 @@
       // Form data
       fields: {
       	id: '',
-      	is_artist: '',
       	name: '',
       	email: '',
       	password: '',
@@ -164,34 +148,31 @@
 	      password_confirmation: [
 	        (v) => !!v || 'Password confirmation is required',
 	        (v) => v && v.length <= 30 || 'Password confirmation must be less than 30 characters'
-	      ],		      	
+	      ],
 	      role: [
 	        (v) => !!v || 'Role is required'
-	      ],	
-	      is_artist: [
-	        (v) => !!v || 'Artist flag is required'
-	      ],	                        	
-      }  
+	      ]
+      }
     }),
 
 
-    
+
     watch: {
     	user (value){
     		if(value.id){
 	    		// Change dispatch action
-	    		this.dispatchAction = 'updateUser';    
+	    		this.dispatchAction = 'updateUser';
 	    		// Populate Form
-	    		Helpers.populateForm(this.fields, value);   
+	    		Helpers.populateForm(this.fields, value);
     		}
     	}
     },
-    
+
     methods: {
       submit () {
         if (this.$refs.form.validate()) {
         	// Toggle loader
-        	this.isSaving = true;       	
+        	this.isSaving = true;
         	// Dispatch event to store
         	this.$store.dispatch(this.dispatchAction, this.fields)
         		.then((response) => {
@@ -201,11 +182,16 @@
         			if(! this.user){
 	        			// Clear form
 	        			Helpers.resetForm(this.fields);
-	        			this.clear();        				
+	        			this.clear();
         			}
       				// A user was updated
-      				this.$emit('saved');      				
-        		});
+      				this.$emit('saved');
+        		})
+						.catch((response) => {
+							// Toggle loader
+        			this.isSaving = false;
+							console.log(response);							
+						});
         }
       },
       remove () {
@@ -213,13 +199,13 @@
       	this.isRemoving = true;
       	// Dispatch event to store
       	this.$store.dispatch('removeUser', this.fields.id)
-      		.then((response) => {      		     			
+      		.then((response) => {
       			// Toggle loader
       			this.isRemoving = false;
       			// Toggle dialog
       			this.removeDialog = false;
     				// A user was removed
-    				this.$emit('saved');          				 			
+    				this.$emit('saved');
       		});
       },
       clear () {

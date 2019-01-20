@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests\SaveArtist;
-use App\PortfolioArtist;
+use App\BookingArtist;
 
-class PortfolioArtistsController extends Controller
+class BookingArtistsController extends Controller
 {
   /**
 	 * Get all artists
@@ -16,7 +16,7 @@ class PortfolioArtistsController extends Controller
 	*/
 	public function all()
 	{
-		return PortfolioArtist::orderBy('created_at', 'desc')->get();
+		return BookingArtist::orderBy('created_at', 'desc')->get();
 	}
 
   /**
@@ -28,7 +28,7 @@ class PortfolioArtistsController extends Controller
 	public function create(SaveArtist $request)
 	{
 		// Start booking
-		$artist = new PortfolioArtist;
+		$artist = new BookingArtist;
 		// Fill booking
 		$artist->fill($request->all());
 		// Save booking
@@ -51,7 +51,7 @@ class PortfolioArtistsController extends Controller
 	public function update(SaveArtist $request)
 	{
 		// Find artist
-		$artist = PortfolioArtist::findOrFail($request->id);
+		$artist = BookingArtist::findOrFail($request->id);
     // Fill artist
 		$artist->fill($request->all());
 		// Save booking
@@ -62,7 +62,7 @@ class PortfolioArtistsController extends Controller
       ], 404);
 		}
 
-		return PortfolioArtist::orderBy('created_at', 'desc')->get();
+		return BookingArtist::orderBy('created_at', 'desc')->get();
 	}
 
 	/**
@@ -79,25 +79,12 @@ class PortfolioArtistsController extends Controller
   	// Ensure key is a number
   	if(is_numeric($id)){
   		// Find artist first because we need the avatar image path
-  		$artist = PortfolioArtist::with(['images'])->find($id);
-  		// Cache images
-  		$images = $artist->images->toArray();
+  		$artist = BookingArtist::find($id);
+
   		// Remove Booking
   		if($artist->delete()){
-  			// If there are images present...
-  			//if(count($images > 0)){
-	  			// Remove each image
-	  			forEach($images as $img){
-		  			if(! unlink(storage_path() . '/app/public/' . $img['src'])){
-			        // Return response for ajax call
-			        return response()->json([
-			            'result' => 'image-removal-error'
-			        ], 404);
-		  			}
-	  			}
-  			//}
   			// We made it, for ease of use, pass back the remaining artist
-  			return PortfolioArtist::orderBy('created_at', 'desc')->get();
+  			return BookingArtist::orderBy('created_at', 'desc')->get();
   		}
   	}
   }

@@ -103,6 +103,7 @@
   			drawer: true,
   			websiteMenuItems: [
   				{ icon: 'photo_library', title: 'Portfolio', link: '/portfolio' },
+					{ icon: 'face', title: 'Booking Artists', link: '/booking-artists' },
   				{ icon: 'list', title: 'FAQs', link: '/faqs' }
   			],
   			appMenuItems: [
